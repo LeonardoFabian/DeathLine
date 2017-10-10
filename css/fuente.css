@@ -1,0 +1,116 @@
+
+/*------------------------FUENTES------------*/
+
+body{
+	font-family: calibri;
+}
+/* -----tamaños---------- */
+.grande{
+	font-size: 17px;
+}
+.pequena{
+	font-size: 15.5px;
+}
+.extra_peque{
+	font-size: 14px;
+}
+/* -----estilo----------- */
+.negrita{
+	font-weight: bold;
+}
+.normal{
+	font-weight: normal;
+}
+/* -----color----------- */
+.oscuro{
+	color: rgb(13, 13, 13);
+}
+.claro{
+	color: rgb(127, 127, 127);
+}
+
+/* ---------------------------------ENLACES-------------*/
+/*      --------NAV------ */
+.hoja header nav a:link{
+	color: rgb(64, 64, 64);
+}
+.hoja header nav a:visited{
+	color: rgb(64, 64, 64);
+}
+.hoja header nav a:hover{
+	background: rgb(217, 217, 217);
+}
+.hoja header nav a:active{
+	color: rgb(64, 64, 64);
+}
+
+/* --------RASTRO_NAVEGACION-------*/
+.hoja section .rastro_navegacion a:link{
+	color: rgb(64, 64, 64);
+}
+.hoja section .rastro_navegacion a:visited{
+	color: rgb(64, 64, 64);
+}
+.hoja section .rastro_navegacion a:hover{
+	color: rgb(255, 192, 0);
+}
+.hoja section .rastro_navegacion a:active{
+	color: rgb(255, 192, 0);
+}
+
+/* pagina:    TOMAR EVALUACION --------------------------------- */
+
+/* -------------LOGIN_INTEGRANTE------------ */
+/*.hoja section .login_integrante button:hover{
+	color: rgb(255, 192, 0);
+}*/
+
+/* pagina:    SOY TUTOR ---------------------------------------- */
+
+/* --------------LOGIN_TUTOR--------------- */
+/*.hoja section .login_tutor button:hover{
+	color: rgb(255, 192, 0);
+}
+.hoja section .login_tutor a:link{
+	color: rgb(64, 64, 64);
+}
+.hoja section .login_tutor a:visited{
+	color: rgb(64, 64, 64);
+}
+.hoja section .login_tutor a:hover{
+	color: rgb(255, 192, 0);
+}
+.hoja section .login_tutor a:active{
+	color: rgb(255, 192, 0);
+}*/
+/* pagina:    SOY TUTOR (sesion iniciado) ---------------------------------------- */
+
+/* --------------BLOQUE_TUTOR--------------- */
+/*.hoja section .bloque_tutor a:link{
+	color: rgb(64, 64, 64);
+}
+.hoja section .bloque_tutor a:visited{
+	color: rgb(64, 64, 64);
+}
+.hoja section .bloque_tutor a:hover{
+	color: rgb(255, 192, 0);
+}
+.hoja section .bloque_tutor a:active{
+	color: rgb(255, 192, 0);
+}
+ --------------DATOS_TUTOR-------------- 
+.hoja section .datos_tutor a:link{
+	color: rgb(64, 64, 64);
+}
+.hoja section .datos_tutor a:visited{
+	color: rgb(64, 64, 64);
+}
+.hoja section .datos_tutor a:hover{
+	color: rgb(255, 192, 0);
+}
+.hoja section .datos_tutor a:active{
+	color: rgb(255, 192, 0);
+}*/
+
+/* pagina:    grupos ---------------------------------------- */
+/* ----------------GRUPOS------------------ */

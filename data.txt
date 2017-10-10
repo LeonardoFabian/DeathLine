@@ -1,0 +1,175 @@
+/*---------------------------------------------- BASE DE DATOS ------------------------------------------------*/
+
+/*--Elimina la base de datos si existe*/
+DROP DATABASE IF EXISTS deathline;
+
+/*Crea la base de datos*/
+CREATE DATABASE deathline;
+
+/*Selecciona la base de datos a usar*/
+USE deathline;
+
+/*---------------------------------------------------- TABLAS ---------------------------------------------------*/
+
+/*Tabla tutor*/
+	CREATE TABLE tutor (
+    id INT NOT NULL auto_increment PRIMARY KEY,
+    nombre VARCHAR( 50 ) NOT NULL,
+    apellido VARCHAR( 50 ) NOT NULL,
+	correo VARCHAR( 80 ),
+    usuario VARCHAR( 25 ),
+	clave VARCHAR( 32 )
+);
+
+/*Tabla grupo*/
+	CREATE TABLE grupo (
+    id INT NOT NULL auto_increment PRIMARY KEY,
+    nombre_grupo VARCHAR( 80 ) NOT NULL,
+    id_tutor INT
+);
+
+/*Tabla integrantes*/
+	CREATE TABLE integrantes (
+    id INT NOT NULL auto_increment PRIMARY KEY,
+    codigo VARCHAR( 50 ) NOT NULL,
+    id_grupo INT,
+	nombre VARCHAR( 50 ),
+    apellido VARCHAR( 50 ),
+	correo VARCHAR( 80 )
+);
+
+/*Tabla evaluaciones*/
+	CREATE TABLE evaluaciones (
+    id INT NOT NULL auto_increment PRIMARY KEY,
+    id_grupo INT,
+    titulo VARCHAR( 50 ),
+	fecha_limite DATE,
+    cronometro TIME
+);
+
+/*Tabla preguntas*/
+	CREATE TABLE preguntas (
+    id INT NOT NULL auto_increment PRIMARY KEY,
+    id_evaluacion INT,
+    titulo VARCHAR( 500 ) NOT NULL,
+	resp_a VARCHAR( 255 ),
+    resp_b VARCHAR( 255 ),
+	resp_c VARCHAR( 255 ),
+    resp_d VARCHAR( 255 ),
+    resp_correcta VARCHAR( 2 ),
+    puntuacion DECIMAL
+);
+
+/*Tabla resultados*/
+	CREATE TABLE resultados (
+    id INT NOT NULL auto_increment PRIMARY KEY,
+    id_evaluacion INT,
+    id_integrante INT,
+	calificacion DECIMAL
+);
+
+/* ------------------- FOREIGN KEY ---------------*/
+
+	ALTER TABLE grupo
+	ADD CONSTRAINT FK_tutorDelGrupo
+	FOREIGN KEY (id_tutor)
+	REFERENCES tutor(id);
+	
+	ALTER TABLE integrantes
+	ADD CONSTRAINT FK_grupoDelIntegrante
+	FOREIGN KEY (id_grupo)
+	REFERENCES grupo(id);
+	
+	ALTER TABLE evaluaciones
+	ADD CONSTRAINT FK_evaluacionesPorGrupo
+	FOREIGN KEY (id_grupo)
+	REFERENCES grupo(id);
+
+    ALTER TABLE preguntas
+	ADD CONSTRAINT FK_preguntasPorEvaluaciones
+	FOREIGN KEY (id_evaluacion)
+	REFERENCES evaluaciones(id);
+
+    ALTER TABLE resultados
+	ADD CONSTRAINT FK_resultadosPorEvaluacion
+	FOREIGN KEY (id_evaluacion)
+	REFERENCES evaluaciones(id);
+
+    ALTER TABLE resultados
+	ADD CONSTRAINT FK_resultadosPorIntegrante
+	FOREIGN KEY (id_integrante)
+	REFERENCES integrantes(id);
+
+
+
+    /* -------------- LOGIN TUTOR -------------------*/
+
+    INSERT INTO tutor
+    (nombre,apellido,correo,usuario,clave)
+    VALUES('eudy','arias','tutor@dominio.com','eudy_arias','1234');
+
+    /*------------- TUTOR CREA UN GRUPO ---------------*/
+    /*
+        El tutor debe asignarle un nombre al grupo y en
+        en un input tipo hidden se debe enviar el id del
+        tutor
+    */
+    INSERT INTO grupo
+    (nombre_grupo,id_tutor)
+    VALUES('prueba PHP',1);
+
+
+    /*-------------- TUTOR REGISTRA INTEGRANTE ----------*/
+    /*
+        el codigo se genera usando javascript o php
+    */
+
+    INSERT INTO integrantes
+    (codigo, id_grupo,nombre,apellido,correo)
+    VALUES('1-1-M',1,'Johan','Iluminati','integrante@dominio.com');
+
+
+    /*------------- TUTOR CREA EVALUACION  --------------*/
+
+    INSERT INTO evaluaciones
+    (id_grupo,titulo,fecha_limite,cronometro)
+    VALUES(1,'Evaluacion Final','2017-12-24','12:00:00');
+
+
+    /*------- TUTOR CREA LAS PREGUNTAS DE LA EVALUACION ------*/
+
+    INSERT INTO preguntas
+    (id_evaluacion,titulo,resp_a,resp_b,resp_c,resp_d,resp_correcta,puntuacion)
+    VALUES(1,'Que significa php','Hypertext Preprocessor','Hyperlink Procesador','Papel Hilo Procesado','Profesor Hecho Polvo','A',15.0);
+
+
+    /*------- INTEGRANTE REALIZA LA EVALUACION----------*
+    /*
+        se realiza la evaluacion del lado cliente usando
+        javascript, se evaluan las respuestas, se saca el 
+        promedio y se inserta a la base de datos.
+
+    */
+    INSERT INTO resultados
+    (id_evaluacion,id_integrante,calificacion)
+    VALUES(1,1,65);
+
+
+
+
+
+    /* ----------------- VISTAS -------------------*/ 
+
+
+    CREATE OR REPLACE VIEW resEvaluacionFinal_Grupo AS 
+    SELECT g.nombre_grupo GRUPO, CONCAT(t.nombre,' ',t.apellido) AS TUTOR, e.titulo AS EVALUACION, CONCAT(i.nombre,' ',i.apellido) AS INTEGRANTE, r.calificacion AS CALIFICACION 
+    FROM 
+    (
+        grupo AS g 
+        INNER JOIN tutor AS t ON g.id_tutor = t.id
+        INNER JOIN evaluaciones AS e ON g.id = e.id_grupo
+        INNER JOIN integrantes AS i ON g.id = i.id_grupo),
+    resultados AS r 
+        INNER JOIN evaluaciones ON r.id_evaluacion = evaluaciones.id
+        INNER JOIN integrantes ON r.id_integrante = integrantes.id
+    ;

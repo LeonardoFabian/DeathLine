@@ -1,0 +1,103 @@
+
+body{
+	background: rgb(242, 242, 242);
+	margin: 0px;
+}
+.hoja{
+	width: 882px;
+	height: 1000px;
+	margin: 18px auto;
+	box-shadow: 0px 0px 50px 2px rgb(166, 166, 166);
+	background: white;
+}
+.ventana_small {
+	
+	width: 400px;
+	margin: 18px auto;
+	padding: 30px 20px;
+	box-shadow: 0px 0px 50px 2px rgb(166, 166, 166);
+	background: white;
+}
+
+
+/* ----------------------HEADER----------------------- */
+
+.hoja header{
+	height: 119px;
+	background: rgb(237, 237, 237);
+}
+
+.hoja header .imagen_logo{
+	text-align: center;
+	padding-top: 23px;
+	padding-bottom: 31px;
+}
+/* --------------- NAV ------*/
+.hoja header nav{
+	text-align: center;
+}
+.hoja header nav a{
+	display: inline-block;
+	padding: 0px 15px;
+	text-decoration: none;
+}
+
+.hoja header nav .inicio{
+	background: rgb(217, 217, 217);
+}
+.hoja header nav .tomar_evaluacion{
+	background: rgb(217, 217, 217);
+}
+.hoja header nav .tutor{
+	background: rgb(217, 217, 217);
+}
+
+/* --------------------RASTRO_NAVEGACION ---------*/
+
+
+/* -----------------------SECTION-------------------*/
+
+.hoja section{
+	padding: 0px 54px;
+}
+
+.label {
+    float: left;
+    clear: left;
+    margin: -3px 30px 0 20px;
+    width: 200px;
+    text-align: left;
+    font-size: 16px;
+    color: #2b2b2b;
+    
+    
+}
+
+.inputs {
+    width: 250px;
+    height: 30px;
+    padding: 5px 10px 0px 10px;
+    margin: 0 0 20px 0;
+    background-color: rgb(217, 217, 217);    
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #2b2b2b;
+   
+}
+
+
+.table-header {
+	color: rgb(127, 127, 127);
+}
+
+.datatable {
+	border:none;
+}
+
+.celdas {
+	padding: 2px 60px;
+	border-top: 1px solid rgb(217, 217, 217);  
+	border-bottom: 1px solid rgb(217, 217, 217);  
+	margin: 0;
+}
