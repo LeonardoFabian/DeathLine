@@ -1,5 +1,7 @@
 /*---------------------------------------------- BASE DE DATOS ------------------------------------------------*/
 
+/* Esta es la base de datos actualizada 11/10/2017 */
+
 /*--Elimina la base de datos si existe*/
 DROP DATABASE IF EXISTS deathline;
 
