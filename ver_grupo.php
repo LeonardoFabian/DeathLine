@@ -132,6 +132,7 @@
 					
 				</div>
 				<span>&nbsp;&nbsp;<a href="#">Mas detalles</a></span>
+				
 			</div>
 			<div class="integrantes_pie" style="text-align: right; width: 550px;">
 				<span class="extra_peque normal claro"><a href="#">Crear nueva evaluacion</a></span>
@@ -152,3 +153,6 @@
 
 </body>
 </html>
+
+
+<DIV> </DIV>
