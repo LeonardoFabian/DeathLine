@@ -16,7 +16,7 @@
     function registrar($nombre,$apellido,$correo,$usuario,$clave) {
         $con = conexion();
         $Query = "
-        INSERT INTO tutor(nombre,apellido,correo,usuario,clave)
+        INSERT INTO tutor(nombre,apellido,correo,usuario,pass)
         VALUES (
         '".$nombre."','".$apellido."','".$correo."','".$usuario."','".MD5($clave)."'
         )";
@@ -35,7 +35,7 @@
         $con = conexion();
         $Query = "
         SELECT * FROM tutor 
-        WHERE usuario = '".$usuario."' AND clave = '".MD5($clave)."' ";
+        WHERE usuario = '".$usuario."' AND pass = '".MD5($clave)."' ";
 
         $resultLogin = mysqli_query($con,$Query);
 
