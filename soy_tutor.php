@@ -5,59 +5,9 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 	<link rel="stylesheet" type="text/css" href="css/fuente.css">
+	<link rel="stylesheet" type="text/css" href="css/hoja.css">
 
-	<style>
-		
-		.hoja section .login_tutor{
-			margin: auto;
-			padding-top: 40px;
-			width: 400px;
-		}
-		.hoja section .login_tutor .login_tutor_titulo{
-			text-align: center;
-		}
-		.hoja section .login_tutor .login_tutor_formulario{
-			border: 1px solid;
-			border-color: rgb(200, 200, 200);
-		}
-		.hoja section .login_tutor .login_tutor_formulario .nota{
-			width: 200px;
-			padding-left: 15px;
-		}
-		.hoja section .login_tutor .login_tutor_formulario .envio{
-			text-align: right;
-			padding-bottom: 30px;
-			padding-right: 40px;
-		}
-		.hoja section .login_tutor .login_tutor_formulario .contenido{
-			text-align: right;
-			padding-top: 60px;
-			padding-bottom: 60px;
-			padding-right: 75px;
-		}
-		.hoja section .login_tutor .login_tutor_formulario .contenido label{
-			margin-right: 20px;
-		}
-
-
-		.hoja section .login_tutor button:hover{
-			color: rgb(255, 192, 0);
-		}
-		.hoja section .login_tutor a:link{
-			color: rgb(64, 64, 64);
-		}
-		.hoja section .login_tutor a:visited{
-			color: rgb(64, 64, 64);
-		}
-		.hoja section .login_tutor a:hover{
-			color: rgb(255, 192, 0);
-		}
-		.hoja section .login_tutor a:active{
-			color: rgb(255, 192, 0);
-		}
-
-	</style>
-
+	
 </head>
 <body>
 <!--
@@ -92,7 +42,7 @@
 					<span>Soy tutor</span>
 				</div>
 				<div class="login_tutor_formulario">
-					<form action="procesarSoyTutor.php" method="post">
+					<form action="procesarSoyTutor.php" method="POST">
 						<div class="contenido grande normal oscuro">
 							
 							<label>Usuario:</label>
