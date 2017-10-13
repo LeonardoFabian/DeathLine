@@ -1,0 +1,148 @@
+/*Datos para Tutor*/
+
+INSERT INTO tutor(nombre, apellido, correo, usuario, clave) 
+VALUES('Pedro', 'Mercedes','pmercedes@deathline.com.do','pmercedes','1234'),
+('Maria', 'Prado','mprado@deathline.com.do','mprado','1234'),
+('Virginia', 'Gonzales','vgonzalez@deathline.com.do','vgonzalez','1234'),
+('Maria', 'Prado','mprado@deathline.com.do','mprado','1234'),
+('Virginia', 'Gonzales','vgonzalez@deathline.com.do','vgonzalez','1234'),
+('Mateo', 'Cabrera','mcabrera@deathline.com.do','mcabrera','1234'),
+('Daniel', 'Sagredo','dsagredo@deathline.com.do','dsagredo','1234'),
+('Jaime', 'Alvarez','jalvarez@deathline.com.do','jalvarez','1234'),
+('Oscar', 'Brito','obrito@deathline.com.do','obrito','1234');
+
+/*Datos para Integrantes*/
+
+INSERT INTO integrantes(codigo, id_grupo, nombre, apellido, correo) VALUES 
+('1-16-M','1','Emmanuel','Suarez','Esuarez@hotmail.com'),
+('1-89-M','1','Eduardo','Gomez','Egomez@gmail.com'),
+('1-53-M','1','Jeudy','Asencio','Jasencio@hotmail.com'),
+('1-22-M','1','Marco','De la rosa','Mdelarosa@hotmail.com'),
+('1-02-M','1','Pedro','Suazo','Psuazo@hotmail.com'),
+('1-12-M','2','Wilson','Leon','wleon@gmail.com'),
+('1-81-M','2','Wagner','Severino','wseverino@hotmail.com'),
+('1-15-M','2','Reynaldo','Santana','ssantana@hotmail.com'),
+('1-632-M','2','Jose','Hernandez','jhernadez@hotmail.com'),
+('1-121-M','2','Ricardo','Cueto','rcueto@hotmail.com'),
+('1-17-M','3','Andris','Pujols','apujols@gmail.com'),
+('1-48-M','3','Ana','Ossers','aossers@hotmail.com'),
+('1-83-M','3','Milva','Garcia','mgarcia@gmail.com'),
+('1-66-M','3','Moises','Monte','mmonte@hotmail.com'),
+('1-66-M','3','Josue','Berges','cmerdedes@hotmail.com'),
+('1-31-M','4','Amelicia','Bayas','Abayas@hotmail.com'),
+('1-88-M','4','Jeidy','Rosario','jrosario@hotmail.com'),
+('1-49-M','4','Rosa','Mercedes','Rmercedes@gmail.com'),
+('1-91-M','4','Mirian','Ravelo','mravelo@hotmail.com'),
+('1-73-M','4','Denalyn','Castillo','Dcastillo@hotmail.com'),
+('2-55-M','5','Amelicia','Bayas','Abayas@hotmail.com'),
+('2-96-M','5','Anibal','Mercedes','Amercedes@hotmail.com'),
+('2-90-M','5','Arturo','Silvestre','Asilvestre@hotmail.com'),
+('3-91-M','5','Carlos','Mercedes','cmerdedes@hotmail.com'),
+('1-03-M','5','Tito','Zorrilla','tzorrilla@hotmail.com');
+
+/*Datos de grupos*/
+
+INSERT INTO grupo(nombre_grupo,id_tutor) VALUES 
+('HTML, CSS','1'),
+('JAVASCRIPT BASICO','2'),
+('JAVASCRIPT INTERMEDIO','3'),
+('JAVASCRIPT AVANZADO','4'),
+('FUNDAMENTOS PROGRAMACION ORIENTADA OBJETOS','5'),
+('FUNDAMENTOS PROGRAMACION ESTRUCTURADA','6');
+
+
+
+/*Datos de Evaluaciones*/
+
+INSERT INTO evaluaciones(id_grupo,titulo,fecha_limite,cronometro) VALUES
+('1','Primer parcial','2017-10-29','01:30:00'),
+('2','Examen Final','2017-10-01','01:30:00'),
+('3','Practica #1','2017-10-05','01:00:00'),
+('4','Examen Final','2017-10-20','01:30:00'),
+('5','Segundo Parcial','2017-10-25','01:00:00');
+
+/*Datos de Preguntas*/
+
+INSERT INTO preguntas(id_evaluacion, titulo, resp_a, resp_b, resp_c, resp_d, resp_correcta, puntuacion) VALUES
+('1','Que es una funcion?','Un programa','grupo de instrucciones con un objetivo en particular y que se ejecuta al ser llamada desde otra función o procedimiento', 'Una variable','Un programa que funciona','B','10'),
+
+('1','Que es una variable?','es un espacio en memoria reservado para almacenar informacion y luego ser utilizada','Un trozo de codigo', 'Una variable','Un programa que funciona','A','10'),
+
+('1','Que es un programa?','es un espacio en memoria reservado para almacenar informacion','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','Un programa que funciona','C','10'),
+
+('1','Que es una constante?','es un espacio en memoria reservado para almacenar informacion','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','una constante es un valor que no puede ser alterado/modificado durante la ejecución de un programa','D','10'),
+
+('1','Que es un bucle?','es una sentencia que ejecuta repetidas veces un trozo de código, hasta que la condición asignada a dicho bucle deja de cumplirse.','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','una constante es un valor que no puede ser alterado/modificado durante la ejecución de un programa','A','10'),
+
+('2','Que es una funcion?','Un programa','grupo de instrucciones con un objetivo en particular y que se ejecuta al ser llamada desde otra función o procedimiento', 'Una variable','Un programa que funciona','B','20'),
+
+('2','Que es una variable?','es un espacio en memoria reservado para almacenar informacion y luego ser utilizada','Un trozo de codigo', 'Una variable','Un programa que funciona','A','20'),
+
+('2','Que es un programa?','es un espacio en memoria reservado para almacenar informacion','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','Un programa que funciona','C','20'),
+
+('2','Que es una constante?','es un espacio en memoria reservado para almacenar informacion','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','una constante es un valor que no puede ser alterado/modificado durante la ejecución de un programa','D','20'),
+
+
+
+('2','Que es un bucle?','es una sentencia que ejecuta repetidas veces un trozo de código, hasta que la condición asignada a dicho bucle deja de cumplirse.','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','una constante es un valor que no puede ser alterado/modificado durante la ejecución de un programa','A','20'),
+
+
+('3','Que es una funcion?','Un programa','grupo de instrucciones con un objetivo en particular y que se ejecuta al ser llamada desde otra función o procedimiento', 'Una variable','Un programa que funciona','B','20'),
+
+('3','Que es una variable?','es un espacio en memoria reservado para almacenar informacion y luego ser utilizada','Un trozo de codigo', 'Una variable','Un programa que funciona','A','20'),
+
+('3','Que es un programa?','es un espacio en memoria reservado para almacenar informacion','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','Un programa que funciona','C','20'),
+
+('3','Que es una constante?','es un espacio en memoria reservado para almacenar informacion','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','una constante es un valor que no puede ser alterado/modificado durante la ejecución de un programa','D','20'),
+
+('3','Que es un bucle?','es una sentencia que ejecuta repetidas veces un trozo de código, hasta que la condición asignada a dicho bucle deja de cumplirse.','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','una constante es un valor que no puede ser alterado/modificado durante la ejecución de un programa','A','20'),
+
+('4','Que es una funcion?','Un programa','grupo de instrucciones con un objetivo en particular y que se ejecuta al ser llamada desde otra función o procedimiento', 'Una variable','Un programa que funciona','B','20'),
+
+('4','Que es una variable?','es un espacio en memoria reservado para almacenar informacion y luego ser utilizada','Un trozo de codigo', 'Una variable','Un programa que funciona','A','20'),
+
+('4','Que es un programa?','es un espacio en memoria reservado para almacenar informacion','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','Un programa que funciona','C','20'),
+
+('4','Que es una constante?','es un espacio en memoria reservado para almacenar informacion','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','una constante es un valor que no puede ser alterado/modificado durante la ejecución de un programa','D','20'),
+
+('4','Que es un bucle?','es una sentencia que ejecuta repetidas veces un trozo de código, hasta que la condición asignada a dicho bucle deja de cumplirse.','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','una constante es un valor que no puede ser alterado/modificado durante la ejecución de un programa','A','20'),
+
+('5','Que es una funcion?','Un programa','grupo de instrucciones con un objetivo en particular y que se ejecuta al ser llamada desde otra función o procedimiento', 'Una variable','Un programa que funciona','B','20'),
+
+('5','Que es una variable?','es un espacio en memoria reservado para almacenar informacion y luego ser utilizada','Un trozo de codigo', 'Una variable','Un programa que funciona','A','20'),
+
+('5','Que es un programa?','es un espacio en memoria reservado para almacenar informacion','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','Un programa que funciona','C','20'),
+
+('5','Que es una constante?','es un espacio en memoria reservado para almacenar informacion','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','una constante es un valor que no puede ser alterado/modificado durante la ejecución de un programa','D','20'),
+
+('5','Que es un bucle?','es una sentencia que ejecuta repetidas veces un trozo de código, hasta que la condición asignada a dicho bucle deja de cumplirse.','Un trozo de codigo', 'es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora','una constante es un valor que no puede ser alterado/modificado durante la ejecución de un programa','A','20'),
+
+
+/*Datos de resultados*/
+
+INSERT INTO resultados(id_evaluacion,id_integrante,calificacion) VALUES
+('1','1','100'),
+('1','2','60'),
+('1','3','70'),
+('1','4','80'),
+('1','5','90'),
+('2','6','100'),
+('2','7','60'),
+('2','8','10'),
+('2','9','80'),
+('2','10','100'),
+('3','11','100'),
+('3','12','100'),
+('3','13','100'),
+('3','14','100'),
+('3','15','100'),
+('4','16','100'),
+('4','17','50'),
+('4','18','80'),
+('4','19','80'),
+('4','20','90'),
+('5','21','50'),
+('5','22','90'),
+('5','23','80'),
+('5','24','100'),
+('5','25','70');
