@@ -1,8 +1,9 @@
 <?php 
 	
 	require_once("funciones.php"); 
+	if(isset($_SESSION["id"])){
 	$datos = obtenerDatos();
-
+	}	
     #echo $datos["id"];
 ?>
 
@@ -94,6 +95,10 @@
 					<a href="index.php" title="ir a:  Inicio">Inicio</a>&nbsp; > &nbsp;<a href="tutor_iniciado.php" title="ir a:  soy tutor">Soy tutor</a>
 				</span>
 			</div>
+
+			<?php
+				if(isset($_SESSION["id"])){
+			 ?>
 <!------------------     AQUI VA EL CONTENIDO ------------------ -->
 
 		<div id="tutor_iniciado">
@@ -163,7 +168,13 @@
 
 <!-- --------------------     AQUI TERMINA EL CONTENIDO --------------------- -->
 		</section>
+<?php } 
+else{
+	//echo "No ha iniciado session";
 
+
+require_once('cerro_sesion.html');
+ }  ?>
 	
 		
 	</div>
