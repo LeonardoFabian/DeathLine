@@ -105,11 +105,11 @@
 <?php mostrarGrupos(); ?>
 <?php echo "<br/><br/><br/>"; ?>
 			<div class="grupos_titulo" style="margin-top: 35px;">
-				<span class="grande negrita oscuro">Integrantes por Grupos:</span>
+				<span class="grande negrita oscuro">Evaluaciones:</span>
 
 			</div>
 			<?php echo "<br/>"; ?>
-<?php countEstudiantesPorGrupo(); ?>
+<?php evaluaciones(); ?>
 
 
 

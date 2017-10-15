@@ -94,7 +94,7 @@
 			<div id="sub-content">
 
 			<div class="grupos_titulo" style="margin-top: 35px;">
-				<span class="grande negrita oscuro">Inegrantes:</span>
+				<span class="grande negrita oscuro">Integrantes:</span>
 			</div>
 			<?php echo "<br/>"; ?>
 

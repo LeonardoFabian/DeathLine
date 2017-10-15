@@ -18,7 +18,7 @@
         $Query = "
         INSERT INTO tutor(nombre,apellido,correo,usuario,clave)
         VALUES (
-        '".$nombre."','".$apellido."','".$correo."','".$usuario."','".MD5($clave)."'
+        '".$nombre."','".$apellido."','".$correo."','".$usuario."','".$clave."'
         )";
 
         $result = mysqli_query($con,$Query);
@@ -35,7 +35,7 @@
         $con = conexion();
         $Query = "
         SELECT * FROM tutor 
-        WHERE usuario = '".$usuario."' AND clave = '".MD5($clave)."' ";
+        WHERE usuario = '".$usuario."' AND clave = '".$clave."' ";
 
         $resultLogin = mysqli_query($con,$Query);
 
@@ -80,10 +80,9 @@
            #echo '</pre>';
             return $datosTutor; 
         }
-
-
     }
 
+   
         function editarUsuario($usuario,$id) {
         $con = conexion();       
         $Query = "
@@ -190,7 +189,7 @@
                         
                        
                     }
-                    echo "<td><a href='#'>Ver grupo</a></td>";
+                   echo "<td><a class='interno' href='procesarDetalleGrupo.php?id=".$row[0]."&mandato=ver_grupo'>Ver grupo</a></td>";
                     echo "</tr>" ;
                     
                     
@@ -267,37 +266,26 @@ function selectGrupoById() {
     $con = conexion();
    $datos = obtenerDatos();
     $Query = " 
-    select concat(i.nombre,' ',i.apellido) as 'Nombre del integrante', i.codigo as 'Código de acceso', g.nombre_grupo, count(i.id) 
+    select concat(i.nombre,' ',i.apellido) as 'Nombre del integrante', i.codigo as 'Código de acceso', g.nombre_grupo, i.id
     from grupo as g, integrantes as i
     where i.id_grupo = '".$_REQUEST['id']."' 
     and g.id = '".$_REQUEST['id']."' 
     ";
     $result = mysqli_query($con,$Query);
+    $n=0;
 
         if($result){
-           #$datosTutor = $result->fetch_assoc() ;
-           # echo '<pre>';
-           # print_r($datosTutor);
-           #echo '</pre>';
-           
- 
-
            
             echo "<table class='datatable' ><thead><tr>";
                 $row = mysqli_fetch_fields($result);
-            #echo "<pre>";
-           #  print_r($row);
-            # echo "</pre>";
-         # Me quede aqui---------------------------------------------
-
-                #foreach($row as $field)
-                
+                       
                 {
                     echo "<th class='table-header' style='font-size:12px;color:grey;'>".$row[0]->name."</th><th class='table-header' style='font-size:12px;color:grey;'>".$row[1]->name."</th>";
                 }
                 echo "</tr></thead><tbody>";
                 for ($i=0;$i < @mysqli_num_rows($result);$i++)
                 {
+                    $n++;
                     echo "<tr class='filas'>";
                     $row = @mysqli_fetch_array($result);
                   #  foreach($row as $value)
@@ -309,8 +297,9 @@ function selectGrupoById() {
                     }
 
 
-                    echo "<td><a href='#'>Más detalles</a></td>";
+                    echo "<td><a href='perfilintegrante.php?id="?><?php echo $row[3];?><?php echo "'>Ver grupo</a></td>";
                     echo "</tr>" ;
+                }
                 echo "<pre>";
                 
                 echo "<span>Grupo</span><br/>";
@@ -321,14 +310,14 @@ function selectGrupoById() {
 
                  echo "</pre>";
                     
-                }
+                
                 
                 echo "</tbody></table>";      
 
                 echo "<div style='width:67%;'>";
                     echo "<div style='width:50%;float:left;text-align:left;'>";
                         echo "<span style='font-size:12px;color:grey;'>Integrantes:&nbsp;&nbsp; </span>";          
-                        print_r($row[3]);
+                        print_r($n);
                     echo "</div>";
                     echo "<div style='width:50%;float:right;text-align:right;'>";
                         echo "<a href='crearIntegrante.php' class='interno' style='font-size:12px;color:grey;'><span>Añadir nuevo integrante</span></a>";           
@@ -408,8 +397,82 @@ function agregarIntegrante($nombre,$apellido,$correo,$id_grupo,$codigo) {
     }
 
 
+function evaluaciones() {
+    $con = conexion();
+   $datos = obtenerDatos();
+    $Query = " 
+    select *
+    from evaluaciones as e, tutor as t
+    where t.id = '".$_SESSION["id"]."' 
+    ";
+    $result = mysqli_query($con,$Query);
+    $n=0;
+
+        if($result){
+           
+            echo "<table class='datatable' > <thead><tr>";
+                $row = mysqli_fetch_fields($result);
+                                
+                {
+                    echo "<th class='table-header' style='font-size:12px;color:grey;'>Titulo</th>
+                    <th class='table-header' style='font-size:12px;color:grey;'>Fecha de finalización</th>
+                    <th class='table-header' style='font-size:12px;color:grey;'>Grupo</th>";
+                }
+                echo "</tr></thead><tbody>";
+                for ($i=0;$i < @mysqli_num_rows($result);$i++)
+                {
+                    $n++;
+                    echo "<tr class='filas'>";
+                    $row = @mysqli_fetch_array($result);
+
+                  #  foreach($row as $value)
+                    {
+                        echo "<td class='celdas' style='padding:2px 100px;'>".$row[2]."</td><td class='celdas'>".$row[3]."</td><td class='celdas'>".$row[1]."</td>";
+                        
+                        
+                       
+                    }
 
 
+                    echo "<td><a href='#'>Más detalles</a></td>";
+                    echo "</tr>" ;
+               
+                    
+                }
+                
+                echo "</tbody></table>";      
+
+                echo "<div style='width:67%;'>";
+                    echo "<div style='width:50%;float:left;text-align:left;'>";
+                        echo "<span style='font-size:12px;color:grey;'>Evaluaciones:&nbsp;&nbsp; </span>";          
+                        echo $n;
+                    echo "</div>";
+                    echo "<div style='width:50%;float:right;text-align:right;'>";
+                        echo "<a href='crearIntegrante.php' class='interno' style='font-size:12px;color:grey;'><span>Añadir nueva evaluacion</span></a>";           
+                    echo "</div>";
+                echo "</div>";
+                echo "<div id='sub-content'>";
+            }
+           
+            return $result;
+        }
+
+
+function obtenerDatosIntegrantes(){
+        $con = conexion();
+        $Query = "
+        select * from integrantes
+        where id = '".$_REQUEST["id"]."'
+        ";
+    
+        $result = mysqli_query($con,$Query);
+
+        if($result) {
+            return $result; 
+        }
+
+
+    }
 
 
    ?>

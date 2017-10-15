@@ -1,5 +1,7 @@
 <?php require_once("funciones.php"); 
 $datos = obtenerDatos();
+$datosint = obtenerDatosIntegrantes();
+$perfil= $datosint->fetch_array();
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +10,7 @@ $datos = obtenerDatos();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mi Perfil</title>
+    <title>Perfil Integrante</title>
          <script type="text/javascript">
         $(document).ready(function() {
             var url = '';
@@ -29,18 +31,16 @@ $datos = obtenerDatos();
 
     <div id="sub-content">
 
- <?php require_once("core/bloque_tutor.php"); ?>
+  <?php require_once("core/bloque_tutor.php"); ?>
 
     <nav id="menu-options" class="options">
         <span  class='extra_peque normal claro'><a href='editarUsuario.php'>Editar usuario</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href='editarClave.php'>Cambiar contraseña</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="editarDatos.php">Editar datos</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="grupos.php" class='interno'>Ir a lista de grupos</a>
-       <!-- <a id"irListaGrupos" href="grupos.php">Ir a la lista de grupos</a>--> 
+          <!-- <a id"irListaGrupos" href="grupos.php">Ir a la lista de grupos</a>--> 
         </span>
     </nav>
 
-    			<div class="datos_tutor">
+    <div class="datos_tutor">
 					<div class="datos_tutor_titulo grande negrita oscuro">
 						<br>
 						<span>Datos:</span>
@@ -48,22 +48,23 @@ $datos = obtenerDatos();
 					<div class="datos_tutor_contenido">
 						<br>
 						<table class="pequena normal oscuro">
+							
 							<tr>
 								<td style="padding-right: 40px;">Nombres:</td>
 								<td>
-									<?php echo $_SESSION["nombre"]?>
+									<?php echo $perfil["nombre"]?>
 								</td>
 							</tr>
 							<tr>
 								<td style="padding-right: 40px;">Apellidos:</td>
 								<td>
-									<?php echo $_SESSION["apellido"]?>
+									<?php echo $perfil["apellido"]?>
 								</td>
 							</tr>
 							<tr>
 								<td style="padding-right: 40px;">Correo:</td>
 								<td>
-									<?php echo $_SESSION["correo"]?>
+									<?php echo $perfil["correo"]?>
 								</td>
 							</tr>
 						</table>
