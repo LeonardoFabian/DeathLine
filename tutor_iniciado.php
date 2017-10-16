@@ -173,7 +173,7 @@ else{
 	//echo "No ha iniciado session";
 
 
-require_once('cerro_sesion.html');
+header('location:soy_tutor.php');
  }  ?>
 	
 		

@@ -36,23 +36,6 @@
 				<?php require_once("core/bloque_tutor.php"); ?>
 
 
-		   <nav id="menu-options" class="options">
-				<span  class='extra_peque normal claro' ><a href='crearNuevoGrupo.php'>Crear nuevo grupo</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		
-				</span>
-			</nav>
-
-
-			<div class="grupos_titulo" style="margin-top: 35px;">
-				<span class="grande negrita oscuro">Grupos:</span>
-			</div>
-			<?php echo "<br/>"; ?>
-
-
-
-
-<?php mostrarGrupos(); ?>
-<?php echo "<br/><br/><br/>"; ?>
 			<div class="grupos_titulo" style="margin-top: 35px;">
 				<span class="grande negrita oscuro">Evaluaciones:</span>
 
@@ -126,6 +109,7 @@
         }
     );
 </script>
+
 
 
 

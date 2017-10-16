@@ -6,7 +6,7 @@
         $apellido = $_POST['apellido'];
         $correo = $_POST['correo'];
         $id_grupo = $_POST['id_grupo'];
-        $usuario = $_POST['codigo']; 
+        $codigo = $_POST['codigo']; 
 
     agregarIntegrante($nombre,$apellido,$correo,$id_grupo,$codigo);
 

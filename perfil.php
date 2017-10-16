@@ -9,6 +9,7 @@ $datos = obtenerDatos();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mi Perfil</title>
+    
          <script type="text/javascript">
         $(document).ready(function() {
             var url = '';
@@ -40,7 +41,7 @@ $datos = obtenerDatos();
         </span>
     </nav>
 
-    <div class="datos_tutor">
+    			<div class="datos_tutor">
 					<div class="datos_tutor_titulo grande negrita oscuro">
 						<br>
 						<span>Datos:</span>
@@ -51,7 +52,7 @@ $datos = obtenerDatos();
 							<tr>
 								<td style="padding-right: 40px;">Usuario:</td>
 								<td>								
-									<?php echo $_SESSION["usuario"]?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<span><?php echo $_SESSION["usuario"]?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									
 								</td>
 							</tr>
@@ -82,7 +83,6 @@ $datos = obtenerDatos();
                 <br/>
                 
 			</div>
-        </div>
-    </div>
+        
 </body>
 </html>

@@ -23,7 +23,7 @@
 
 	<div class="hoja">
 		<header>
-			<?php require_once("header.php"); ?>
+			<?php require_once("headerTutor.php"); ?>
 		</header>
 
 		<section id="content">
